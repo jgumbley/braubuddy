@@ -24,7 +24,7 @@ class CSVFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25,20,0,10\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25,20,0,10\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_show_timestamp(self):
@@ -35,7 +35,7 @@ class CSVFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25,20,0,10\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25,20,0,10\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_unset_show_timestamp(self):
@@ -46,7 +46,7 @@ class CSVFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'25,20,0,10\n'
+        expected = '25,20,0,10\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_timestamp_format(self):
@@ -58,5 +58,5 @@ class CSVFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d/\d\d/\d\d \d\d:\d\d,25,20,0,10'
+        expected = '\d\d/\d\d/\d\d \d\d:\d\d,25,20,0,10'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)

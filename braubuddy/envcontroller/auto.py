@@ -1,7 +1,6 @@
 from cherrypy import log
 from braubuddy.envcontroller import DeviceError
 from braubuddy.envcontroller import IEnvController
-from braubuddy.envcontroller import Tosr0xEnvController
 from braubuddy.envcontroller import DummyEnvController
 
 
@@ -22,13 +21,6 @@ class AutoEnvController(IEnvController):
         discovered.
         """
 
-        log('Auto-discovering Environmental Controller.')
-        try:
-            envcontroller = Tosr0xEnvController()
-            log('Tosr0x Environmental Controller detected.')
-            return envcontroller
-        except DeviceError:
-            log('No Tosr0x Environmental Controllers detected.')
         log.error(
             'No compatible Environmental Controllers detected. '
             'Using Dummy device.')

@@ -38,9 +38,9 @@ class ImageFileOutput(IOutput):
     def __init__(self, units='celsius', out_file='braubuddy.png',
                  out_format='png', chart_title='Braubuddy', chart_mins=10080,
                  x_label_mins=60):
-        if out_format not in FORMATS.keys():
+        if out_format not in list(FORMATS.keys()):
             raise OutputError('ImageFileOutput format must be in {0}'.format(
-                FORMATS.keys()))
+                list(FORMATS.keys())))
         self._outputter = FORMATS[out_format]
         self._out_file = expanduser(out_file)
         self._past_seconds = chart_mins * 60

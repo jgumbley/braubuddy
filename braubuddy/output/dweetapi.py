@@ -45,7 +45,7 @@ class DweetAPIOutput(IOutput):
             raise OutputError(
                 'Error publishing to Dweet API: {0}'.format(err))
         if response['this'] != 'succeeded':
-            print response
+            print(response)
             raise OutputError(
                 'Error publishing to Dweet API: {0}'.format(response['this']))
         else:

@@ -13,7 +13,7 @@ class TestDummy(BraubuddyTestCase):
 
         lower_bound = 20
         upper_bound = 30
-        allowed_range = range(lower_bound, upper_bound)
+        allowed_range = list(range(lower_bound, upper_bound))
         test_dummy = dummy.DummyThermometer(
             lower_bound = lower_bound,
             upper_bound = upper_bound)

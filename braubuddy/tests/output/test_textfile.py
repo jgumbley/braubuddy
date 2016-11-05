@@ -24,7 +24,7 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d 25°F 20°F 0% 10%\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d 25°F 20°F 0% 10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_separator(self):
@@ -36,7 +36,7 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25°F,20°F,0%,10%\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25°F,20°F,0%,10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_show_labels(self):
@@ -49,8 +49,8 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25°F,' \
-            + u'Temperature:20°F,Heater:0%,Cooler:10%\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25°F,' \
+            + 'Temperature:20°F,Heater:0%,Cooler:10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_unset_show_labels(self):
@@ -63,7 +63,7 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25°F,20°F,0%,10%\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,25°F,20°F,0%,10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_show_units(self):
@@ -77,8 +77,8 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25°F,' \
-            + u'Temperature:20°F,Heater:0%,Cooler:10%\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25°F,' \
+            + 'Temperature:20°F,Heater:0%,Cooler:10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_unset_show_units(self):
@@ -92,8 +92,8 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25,' \
-            + u'Temperature:20,Heater:0,Cooler:10\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25,' \
+            + 'Temperature:20,Heater:0,Cooler:10\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_show_timestamp(self):
@@ -108,8 +108,8 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25°F,' \
-            + u'Temperature:20°F,Heater:0%,Cooler:10%\n'
+        expected = '\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d,Target:25°F,' \
+            + 'Temperature:20°F,Heater:0%,Cooler:10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_unset_show_timestamp(self):
@@ -124,7 +124,7 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'Target:25°F,Temperature:20°F,Heater:0%,Cooler:10%\n'
+        expected = 'Target:25°F,Temperature:20°F,Heater:0%,Cooler:10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)
 
     def test_set_timestamp_format(self):
@@ -140,6 +140,6 @@ class TextFileOutput(BraubuddyTestCase):
             out_file=outfile.name
         )
         output.publish_status(self.temp, self.target, self.heat, self.cool)
-        expected = u'\d\d/\d\d/\d\d \d\d:\d\d,Target:25°F,' \
-            + u'Temperature:20°F,Heater:0%,Cooler:10%\n'
+        expected = '\d\d/\d\d/\d\d \d\d:\d\d,Target:25°F,' \
+            + 'Temperature:20°F,Heater:0%,Cooler:10%\n'
         self.assertRegexpMatches(outfile.read().decode('UTF-8'), expected)

@@ -19,11 +19,10 @@ class ReadError(Exception):
     pass
 
 
-class IThermometer(object):
+class IThermometer(object, metaclass=abc.ABCMeta):
     """
     Interface for creating a thermometer for use with :mod:`braudbuddy`.
     """
-    __metaclass__ = abc.ABCMeta
 
     def __init__(self):
         pass

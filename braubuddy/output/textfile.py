@@ -74,5 +74,5 @@ class TextFileOutput(IOutput):
             fh = open(self._out_file, 'a+')
             fh.write(line)
             fh.close()
-        except IOError, err:
+        except IOError as err:
             raise OutputError(err)

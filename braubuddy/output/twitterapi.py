@@ -59,7 +59,7 @@ class TwitterAPIOutput(IOutput):
         """
 
         if not os.path.exists(creds_file):
-            print 'Authorising with Twitter...'
+            print('Authorising with Twitter...')
             try:
                 twitter.oauth_dance(APP, TCK, TCS, creds_file)
             except twitter.TwitterHTTPError as err:

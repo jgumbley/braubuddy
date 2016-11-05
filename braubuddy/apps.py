@@ -114,7 +114,7 @@ class Engine(object):
         envcontroller.set_cooler_level(required_cool)
         # Output
         target = thermostat.target
-        for name, output in cherrypy.request.app.config['outputs'].iteritems():
+        for name, output in cherrypy.request.app.config['outputs'].items():
             try:
                 output.publish_status(target, current_temp, current_heat,
                                       current_cool)

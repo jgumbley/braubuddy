@@ -20,12 +20,11 @@ class PercentageError(Exception):
     """
 
 
-class IEnvController(object):
+class IEnvController(object, metaclass=abc.ABCMeta):
     """
     Interface for creating an environmental controller for use with
     :mod:`braubuddy`.
     """
-    __metaclass__ = abc.ABCMeta
 
     def __init__(self):
         pass

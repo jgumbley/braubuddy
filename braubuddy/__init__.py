@@ -2,11 +2,11 @@ import os
 import shutil
 from pkg_resources import Requirement, resource_filename
 from xdg import BaseDirectory
-import thermostat
-import thermometer
-import envcontroller
-import output
-import apps
+from . import thermostat
+from . import thermometer
+from . import envcontroller
+from . import output
+from . import apps
 
 
 def _deploy_config_file(destination_dir):
@@ -22,7 +22,7 @@ def _deploy_config_file(destination_dir):
     if not os.path.exists(destination_dir):
         os.makedirs(destination_dir)
     config_file_path = os.path.join(destination_dir, CONFIG_FILENAME_BRAUBUDDY)
-    print 'Copying default config file to {0}'.format(config_file_path)
+    print('Copying default config file to {0}'.format(config_file_path))
     default_config_path = os.path.join(CONFIG_DIR, CONFIG_FILENAME_BRAUBUDDY)
     shutil.copy(default_config_path, config_file_path)
     return config_file_path
@@ -50,7 +50,7 @@ def _get_config_file_location():
         config_path = os.path.join(
             BaseDirectory.xdg_config_home, 'braubuddy')
         config_file_path = _deploy_config_file(config_path)
-    print 'Loading config from {0}'.format(config_file_path)
+    print('Loading config from {0}'.format(config_file_path))
     return config_file_path
 
 # Base dirs

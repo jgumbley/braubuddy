@@ -5,12 +5,10 @@ Braubuddy thermostat interface.
 import abc
 
 
-class IThermostat(object):
+class IThermostat(object, metaclass=abc.ABCMeta):
     """
     Interface for creating a thermostat for use with :mod:`braudbuddy`.
     """
-
-    __metaclass__ = abc.ABCMeta
 
     def __init__(self, target):
         """

@@ -16,12 +16,8 @@ def main():
     """
 
     # First load everything fron the config file into a dict. 
-    try:
-        braubuddy_config = cherrypy.lib.reprconf.as_dict(
-            braubuddy.CONFIG_FILE_BRAUBUDDY)
-    except Exception as err:
-        print err
-        return -1
+    braubuddy_config = cherrypy.lib.reprconf.as_dict(
+        braubuddy.CONFIG_FILE_BRAUBUDDY)
     
     # Now initialise the various parts of the application with the relevant
     # pieces of config.

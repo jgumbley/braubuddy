@@ -13,15 +13,13 @@ class OutputError(Exception):
     """
 
 
-class IOutput(object):
+class IOutput(object, metaclass=abc.ABCMeta):
     """
     Interface for creating an output for use with :mod:`braubuddy`.
 
     :param units: Temperature units to output.
     :type units: :class:`str`
     """
-
-    __metaclass__ = abc.ABCMeta
 
     def __init__(self, units='celsius'):
 

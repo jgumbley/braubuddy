@@ -17,7 +17,7 @@ def abbreviate_temp_units(units):
         'Fahrenheit':   'F',
         'fahrenheit':   'F',
     }
-    if units not in conversion_map.keys():
+    if units not in list(conversion_map.keys()):
         raise KeyError('Unable to abbreviate {0}. Unknown unit.'.format(units))
     return conversion_map[units]
 
@@ -48,12 +48,12 @@ def convert_temp_units(temp, units_from='celsius', units_to='fahrenheit'):
     # Use lowercase units names to catch more input values
     units_from = units_from.lower()
     units_to = units_to.lower()
-    if units_from not in conversion_map.keys():
+    if units_from not in list(conversion_map.keys()):
         raise KeyError(
             'Unable to convert from {0!r} to {1!r}'.format(
                 units_from, units_to))
     conversion_sub_map = conversion_map[units_from]
-    if units_to not in conversion_sub_map.keys():
+    if units_to not in list(conversion_sub_map.keys()):
         raise KeyError(
             'Unable to convert from {0!r} to {1!r}'.format(
                 units_from, units_to))
@@ -89,6 +89,6 @@ def map_temp_units_to_symbol(units):
             ]
         }
     }
-    for unit, details in unit_map.iteritems():
+    for unit, details in unit_map.items():
         if units in details['aliases']:
             return details['symbol']
