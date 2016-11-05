@@ -54,7 +54,7 @@ def _get_config_file_location():
     return config_file_path
 
 # Base dirs
-THIS_DIR = resource_filename(Requirement.parse('braubuddy'), 'braubuddy')
+THIS_DIR = os.path.join(os.getcwd(), 'braubuddy')
 CONFIG_DIR = os.path.join(THIS_DIR, 'config')
 TEMPLATE_DIR = os.path.join(THIS_DIR, 'templates')
 # Internal config files

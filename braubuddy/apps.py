@@ -89,9 +89,9 @@ class Engine(object):
         units = cherrypy.config['units']
         retry_count = cherrypy.config['retry_count']
         retry_delay = cherrypy.config['retry_delay']
-        envcontroller = cherrypy.config['envcontroller']
-        thermometer = cherrypy.config['thermometer']
-        thermostat = cherrypy.config['thermostat']
+        envcontroller = braubuddy.envcontroller.DummyEnvController()
+        thermometer = braubuddy.thermometer.DummyThermometer()
+        thermostat = braubuddy.thermostat.SimpleRangedThermostat(20, lower_out=2, lower_in=1, upper_in=1, upper_out=2)
         # Environment input
         current_heat, current_cool = envcontroller.get_power_levels()
         # Temperature input
