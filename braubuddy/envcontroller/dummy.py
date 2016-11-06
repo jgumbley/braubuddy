@@ -16,12 +16,12 @@ class RelayHeaterController(IEnvController):
         devices = relayctl.connect()
         if bool:
             relayctl.switchon(devices[0], 1)
-            relayctl.status(devices[0], 1)
+            relayctl.getstatus(devices[0], 1)
             relayctl.switchoff(devices[0], 1)
-            relayctl.status(devices[0], 1)
+            relayctl.getstatus(devices[0], 1)
         else:
             relayctl.switchoff(devices[0], 1)
-            relayctl.status(devices[0], 1)
+            relayctl.getstatus(devices[0], 1)
         devices = None
 
     def set_heater_level(self, percent):
