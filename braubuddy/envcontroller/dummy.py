@@ -16,6 +16,7 @@ class RelayHeaterController(IEnvController):
 
     def _relayset(self, bool):
         devices = relayctl.connect()
+        usb.util.dispose_resources(devices[0])
         relayctl.enable(devices[0])
         if bool:
             relayctl.switchon(devices[0], 1)
@@ -26,8 +27,6 @@ class RelayHeaterController(IEnvController):
         relayctl.disable(devices[0])
         if devices[0].is_kernel_driver_active(0):
             devices[0].detach_kernel_driver(0)
-        usb.util.dispose_resources(devices[0])
-        devices = None
 
     def set_heater_level(self, percent):
         if percent not in list(range(0, 101)):
