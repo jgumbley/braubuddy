@@ -11,18 +11,15 @@ class RelayHeaterController(IEnvController):
     def __init__(self):
         self._heater_percent = 0
         self._cooler_percent = 0
+        self._devices = relayctl.connect()
 
     def _relayset(self, bool):
-        devices = relayctl.connect()
         if bool:
-            relayctl.switchon(devices[0], 1)
-            relayctl.getstatus(devices[0], 1)
-            relayctl.switchoff(devices[0], 1)
-            relayctl.getstatus(devices[0], 1)
+            relayctl.switchon(self._devices[0], 1)
+            relayctl.getstatus(self.devices[0], 1)
         else:
-            relayctl.switchoff(devices[0], 1)
-            relayctl.getstatus(devices[0], 1)
-        devices = None
+            relayctl.switchoff(self._devices[0], 1)
+            relayctl.getstatus(self._devices[0], 1)
 
     def set_heater_level(self, percent):
         if percent not in list(range(0, 101)):
