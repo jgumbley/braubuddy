@@ -2,6 +2,7 @@ from braubuddy.envcontroller import IEnvController
 from braubuddy.envcontroller import PercentageError
 
 import relayctl
+import usb
 
 class RelayHeaterController(IEnvController):
     """
@@ -25,6 +26,7 @@ class RelayHeaterController(IEnvController):
         relayctl.disable(devices[0])
         if devices[0].is_kernel_driver_active(0):
             devices[0].detach_kernel_driver(0)
+        usb.util.dispose_resources(devices[0])
         devices = None
 
     def set_heater_level(self, percent):
