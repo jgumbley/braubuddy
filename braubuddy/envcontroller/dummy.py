@@ -15,6 +15,7 @@ class RelayHeaterController(IEnvController):
         self._devices = relayctl.connect()
 
     def _relayset(self, bool):
+        relayctl.enable(self._devices[1])
         if bool:
             relayctl.switchon(self._devices[0], 1)
             relayctl.getstatus(self.devices[0], 1)
