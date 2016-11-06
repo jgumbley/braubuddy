@@ -25,7 +25,7 @@ def main():
     # Global
     cherrypy.config.update(braubuddy_config['global'])
     # Engine
-    engine_config = {'outputs': braubuddy_config['outputs']}
+    engine_config = {'outputs': {}}
     cherrypy.tree.mount(
         braubuddy.apps.Engine(), '/engine', config=engine_config)
     # Dashboard
