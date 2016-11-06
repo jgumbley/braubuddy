@@ -11,6 +11,7 @@ class RelayHeaterController(IEnvController):
     def __init__(self):
         self._heater_percent = 0
         self._cooler_percent = 0
+        print ("new relay")
         self._devices = relayctl.connect()
 
     def _relayset(self, bool):
